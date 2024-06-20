@@ -1,9 +1,73 @@
+"use client";
+
+import { BsArrowDownRight } from "react-icons/bs";
+import Link from "next/link";
+
+import { motion } from "framer-motion";
+
+const services = [
+  {
+    num: "1",
+    title: "Web Devlopment",
+    description:
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum, rerum.",
+    href:"",
+  },
+  {
+    num: "2",
+    title: "Software Devlopment",
+    description:
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum, rerum.",
+      href:"",
+  },
+  {
+    num: "3",
+    title: "Logo design",
+    description:
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum, rerum.",
+    href:"",
+  },
+  {
+    num: "4",
+    title: "SEO",
+    description:
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum, rerum.",
+    href:"",
+  },
+];
+
 const Services = () => {
   return (
-    <div>
-      services page
-    </div>
-  )
-}
+    <section className="min-h-[80vh] flex flex-col justify-center py-12 xl:py-0 ">
+      <div className="container mx-auto">
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{
+            opacity: 1,
+            transition: { delay: 2.4, duration: 0.4, ease: "easeIn" },
+          }}
+          className="grid grid-cols-1 xl:grid-cols-2 gap-[60px]"
+        >
+          {services.map((service,index)=>{
+            return (
+              <div>
+                <div>
+                  <div>{service.num}</div>
+                  <Link href={service.href}>
+                    <BsArrowDownRight/>
+                  </Link>
+                </div>
+                <h2>{service.title}</h2>
+                <p>{service.description}</p>
+                <div className="border-b border-white/20 w-full"></div>
+              </div>
+              
+            );
+          })}
+        </motion.div>
+      </div>
+    </section>
+  );
+};
 
-export default Services
+export default Services;

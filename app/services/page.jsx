@@ -50,9 +50,9 @@ const Services = () => {
         >
           {services.map((service,index)=>{
             return (
-              <div>
-                <div>
-                  <div>{service.num}</div>
+              <div key={index} className="flex-1 flex flex-col justify-center gap-6 group">
+                <div className="w-full flex justify-between items-center">
+                  <div className="text-5xl font-extrabold">{service.num}</div>
                   <Link href={service.href}>
                     <BsArrowDownRight/>
                   </Link>

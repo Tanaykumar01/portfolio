@@ -32,7 +32,11 @@ module.exports = {
           // hover : "#eee8aa",
         }
       },
-
+      variants: {
+        extend: {
+          textColor: ['responsive', 'hover', 'focus', 'group-hover'],
+        },
+      },
       keyframes: {
         "accordion-down": {
           from: { height: "0" },

@@ -1,7 +1,5 @@
 "use client";
 
-import { Description } from "@radix-ui/react-dialog";
-import { icons } from "lucide-react";
 import {
   FaHtml5,
   FaCss3,
@@ -10,13 +8,7 @@ import {
   FaFigma,
   FaNodeJs,
 } from "react-icons/fa";
-import {
-  SiMongodb,
-  SiRedux,
-  SiMaterialUi,
-  SiTailwindcss,
-  SiNextDotJs,
-} from "react-icons/si";
+import {SiMongodb ,SiTailwindcss, SiNextdotjs } from "react-icons/si";
 
 const about = {
   title: "About me",
@@ -24,32 +16,32 @@ const about = {
     "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quaerat, provident ullam tenetur ea consequatur maiores!",
   info: [
     {
-      name: "Name",
-      icon: "Tanay Kumar",
+      fieldname: "Name",
+      fieldicon: "Tanay Kumar",
     },
     {
-      name: "Phone",
-      icon: "+91 9931302202",
+      fieldname: "Phone",
+      fieldicon: "+91 9931302202",
     },
     {
-      name: "Experience",
-      icon: "Freshers",
+      fieldname: "Experience",
+      fieldicon: "Freshers",
     },
     {
-      name: "Nationality",
-      icon: "Indian",
+      fieldname: "Nationality",
+      fieldicon: "Indian",
     },
     {
-      name: "Email",
-      icon: "tanayjhunjhunwala.official@gmail.com",
+      fieldname: "FreeLancer",
+      fieldicon: "Available",
     },
     {
-      name: "FreeLancer",
-      icon: "Available",
+      fieldname: "Email",
+      fieldicon: "tanayjhunjhunwala.official@gmail.com",
     },
     {
-      name: "Languages",
-      icon: "English, Hindi",
+      fieldname: "Languages",
+      fieldicon: "English, Hindi",
     },
   ],
 };
@@ -61,16 +53,14 @@ const experience = {
     "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quaerat, provident ullam tenetur ea consequatur maiores!",
   info: [
     {
-      name: "Frontend",
-      icon: "HTML, CSS, JS, React, Redux, Material UI, Tailwind CSS, Next JS",
+      duration: "2023-2024",
+      position: "Coordinator",
+      company: "Scholarship Cell",
     },
     {
-      name: "Backend",
-      icon: "Node JS, MongoDB",
-    },
-    {
-      name: "Designing",
-      icon: "Figma",
+      duration: "2022-2025",
+      position: "Head Coordinator",
+      company: "Badminton, IIIT Bhopal",
     },
   ],
 };
@@ -82,12 +72,12 @@ const education = {
     "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quaerat, provident ullam tenetur ea consequatur maiores!",
   info: [
     {
-      institution: "Indian Institute of Information Technology, Bhopal",
+      institution: "IIIT, Bhopal",
       degree: "Btech in Electronics and Communication",
       year: "2021-2025",
     },
     {
-      institution: "Online Course in Web Development",
+      institution: "Online Course",
       degree: "Full stack web development",
       year: "2024",
     },
@@ -100,8 +90,8 @@ const skills = {
     "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quaerat, provident ullam tenetur ea consequatur maiores!",
   info: [
     {
-      name: "HTML",
       icon: <FaHtml5 />,
+      name: "HTML",
     },
     {
       name: "CSS",
@@ -120,12 +110,8 @@ const skills = {
       icon: <FaNodeJs />,
     },
     {
-      name: "MongoDB",
+      name: "MongoDb",
       icon: <SiMongodb />,
-    },
-    {
-      name: "Redux",
-      icon: <SiRedux />,
     },
     {
       name: "Tailwind CSS",
@@ -133,7 +119,7 @@ const skills = {
     },
     {
       name: "Next JS",
-      icon: <SiNextDotJs />,
+      icon: <SiNextdotjs />
     },
     {
       name: "Figma",
@@ -150,7 +136,7 @@ import {
   TooltipTrigger,
 } from "@/components/ui/tooltip";
 import { ScrollArea } from "@/components/ui/scroll-area";
-import { easeIn, motion } from "framer-motion";
+import { motion } from "framer-motion";
 
 const Resume = () => {
   return (
@@ -175,7 +161,106 @@ const Resume = () => {
           </TabsList>
           <div className="min-h-[70vh] w-full">
             <TabsContent value="experience" className="w-full">
-              experience
+              <div className="flex flex-col gap-[30px] text-center xl:text-left">
+                <h3 className="text-4xl font-bold">{experience.title}</h3>
+                <p className="max-w-[600px] text-white/60 mx-auto xl:mx-0">
+                  {experience.description}
+                </p>
+                <ScrollArea className="h-[400px]">
+                  <ul className="grid grid-cols-1 lg:grid-cols-2 gap-[30px]">
+                    {experience.info.map((item, index) => {
+                      return (
+                        <li
+                          key={index}
+                          className="bg-[#232329] h-[184px] py-6 px-10 rounded-xl flex flex-col justify-center items-center lg:items-start gap-1"
+                        >
+                          <span className="text-accent">{item.duration}</span>
+                          <h3 className="text-xl max-w-[260px] min-h-[60px] text-center lg:text-left">
+                            {item.position}
+                          </h3>
+                          <div className="flex items-center gap-3">
+                            <span className="w-[6px] h-[6px] rounded-full bg-accent"></span>
+                            <p className="text-white/60">{item.company}</p>
+                          </div>
+                        </li>
+                      );
+                    })}
+                  </ul>
+                </ScrollArea>
+              </div>
+            </TabsContent>
+            <TabsContent value="education" className="w-full">
+              <div className="flex flex-col gap-[30px] text-center xl:text-left">
+                <h3 className="text-4xl font-bold">{education.title}</h3>
+                <p className="max-w-[600px] text-white/60 mx-auto xl:mx-0">
+                  {education.description}
+                </p>
+                <ScrollArea className="h-[400px]">
+                  <ul className="grid grid-cols-1 lg:grid-cols-2 gap-[30px]">
+                    {education.info.map((item, index) => {
+                      return (
+                        <li
+                          key={index}
+                          className="bg-[#232329] h-[184px] py-6 px-10 rounded-xl flex flex-col justify-center items-center lg:items-start gap-1"
+                        >
+                          <span className="text-accent">{item.year}</span>
+                          <h3 className="text-xl max-w-[260px] min-h-[60px] text-center lg:text-left">
+                            {item.degree}
+                          </h3>
+                          <div className="flex items-center gap-3">
+                            <span className="w-[6px] h-[6px] rounded-full bg-accent"></span>
+                            <p className="text-white/60">{item.institution}</p>
+                          </div>
+                        </li>
+                      );
+                    })}
+                  </ul>
+                </ScrollArea>
+              </div>
+            </TabsContent>
+            <TabsContent value="skills" className="w-full h-full">
+              <div className="flex flex-col gap-[30px]">
+                <div className="flex flex-col gap-[30px] text-center xl:text-left">
+                  <h3 className="text-4xl font-bold">{skills.title}</h3>
+                  <p className="max-w-[600px] text-white/60 mx-auto xl:mx-0">
+                    {skills.description}
+                  </p>
+                </div>
+                <ul className="grid gird-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 xl:gap-[30px]">
+                  {skills.info.map((skill , index)=> {
+                    return (
+                      <li key={index}>
+                         <TooltipProvider delayDuration={100}>
+                          <Tooltip>
+                            <TooltipTrigger className="group w-full h-[150px] bg-[#232329] rounded-xl flex justify-center items-center">
+                              <div className="text-6xl group-hover:text-accent transition-all duration-300 ">{skill.icon}</div>
+                            </TooltipTrigger>
+                            <TooltipContent>
+                              <p className="capitalize">{skill.name}</p>
+                            </TooltipContent>
+                          </Tooltip>
+                        </TooltipProvider> 
+                      </li>
+                    )
+                  })}
+                </ul>
+              </div>
+            </TabsContent>
+            <TabsContent value="about" className="w-full text-center xl:text-left">
+              <div className="flex flex-col gap-[30px]">
+                <h3 className="text-4xl font-bold">{about.title}</h3>
+                <p className="max-w-[600px] text-white/60 mx-auto xl:mx-0">{about.description}</p>
+                <ul className="grid grid-cols-1 xl:grid-cols-2 gap-y-6 max-w-[620px] mx-auto xl:mx-0">
+                {about.info.map((item , index)=>{
+                  return (
+                    <li key={index} className="flex justify-center items-center xl:justify-start gap-4">
+                      <span className="text-white/60">{item.fieldname}</span>
+                      <span className="text-xl">{item.fieldicon}</span>
+                    </li>
+                  );
+                })}
+              </ul>
+              </div>
             </TabsContent>
           </div>
         </Tabs>

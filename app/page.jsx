@@ -20,6 +20,7 @@ const Home = () => {
               I excel at crafting elegent digital experiences and I am
               proficient in various programing languages and technologies.
             </p>
+            {/* Motivated and detail-oriented B.Tech graduate in Electronics and Communication Engineering with strong technical skills in software development, web applications, and data structures. Seeking a challenging position to utilize my skills and contribute to innovative projects. */}
             {/* Button and Socials */}
             <div className="flex flex-col xl:flex-row items-center gap-8">
               <Button

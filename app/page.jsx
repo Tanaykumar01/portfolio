@@ -4,6 +4,7 @@ import { FiDownload } from "react-icons/fi";
 import Social from "@/components/Social";
 import Photo from "@/components/Photo";
 import Stats from "@/components/Stats";
+import Link from "next/link";
 
 const Home = () => {
   return (
@@ -23,14 +24,16 @@ const Home = () => {
             {/* Motivated and detail-oriented B.Tech graduate in Electronics and Communication Engineering with strong technical skills in software development, web applications, and data structures. Seeking a challenging position to utilize my skills and contribute to innovative projects. */}
             {/* Button and Socials */}
             <div className="flex flex-col xl:flex-row items-center gap-8">
-              <Button
-                variant="outline"
-                size="lg"
-                className="uppercase flex items-center gap-2"
-              >
-                <span>Download CV </span>
-                <FiDownload className="text-xl" />
-              </Button>
+              <Link href="/Tanay_resume.pdf">
+                  <Button
+                    variant="outline"
+                    size="lg"
+                    className="uppercase flex items-center gap-2"
+                  >
+                    <span>Download CV </span>
+                    <FiDownload className="text-xl" />
+                  </Button>
+              </Link>
               <div className="mb-8 xl:mb-0">
                 <Social
                   containerStyles="flex gap-6"
@@ -40,11 +43,11 @@ const Home = () => {
             </div>
           </div>
           <div className="order-1 xl:order-none mb-8 xl:mb-0">
-            <Photo/>
+            <Photo />
           </div>
         </div>
       </div>
-      <Stats/>
+      <Stats />
     </section>
   );
 };

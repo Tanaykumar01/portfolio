@@ -87,4 +87,5 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ---
 
 Feel free to customize this README file to better suit your personal style and the specifics of your portfolio.
+
 Hosted Link: [portfolio](https://tanay-portfolio-nu.vercel.app/)
